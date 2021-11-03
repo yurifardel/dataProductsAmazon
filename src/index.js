@@ -14,11 +14,11 @@ app.get('/', (req, res) => {
   res.send('Bem vindo')
 })
 
-app.get('/products/:productsId', async (req, res) => {
-  const { productsId } = req.params;
+app.get('/products/:productId', async (req, res) => {
+  const { productId } = req.params;
   const { api_key } = req.query
   try {
-    const response = await request(`${generateScraperUrl(api_key)}&url=https://www.amazon.com/dp/${productsId}`)
+    const response = await request(`${generateScraperUrl(api_key)}&url=https://www.amazon.com/dp/${productId}`)
 
     return res.json(JSON.parse(response))
   } catch (error) {
@@ -26,12 +26,12 @@ app.get('/products/:productsId', async (req, res) => {
   }
 })
 
-app.get('/products/:productsId/reviews', async (req, res) => {
-  const { productsId } = req.params;
+app.get('/products/:productId/reviews', async (req, res) => {
+  const { productId } = req.params;
   const { api_key } = req.query
 
   try {
-    const response = await request(`${generateScraperUrl(api_key)}&url=https://www.amazon.com/product-reviews/${productsId}`)
+    const response = await request(`${generateScraperUrl(api_key)}&url=https://www.amazon.com/product-reviews/${productId}`)
 
     return res.json(JSON.parse(response))
   } catch (error) {
@@ -39,12 +39,12 @@ app.get('/products/:productsId/reviews', async (req, res) => {
   }
 })
 
-app.get('/products/:productsId/offers', async (req, res) => {
-  const { productsId } = req.params;
+app.get('/products/:productId/offers', async (req, res) => {
+  const { productId } = req.params;
   const { api_key } = req.query
 
   try {
-    const response = await request(`${generateScraperUrl(api_key)}&url=https://www.amazon.com/gp/offer-listing/${productsId}`)
+    const response = await request(`${generateScraperUrl(api_key)}&url=https://www.amazon.com/gp/offer-listing/${productId}`)
 
     return res.json(JSON.parse(response))
   } catch (error) {
