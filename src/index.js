@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 8080
 // const apiKey = '16e8a0391d250b1bb02b79751c286816'
 // const baseUrl = `http://api.scraperapi.com?api_key=${apiKey}&autoparse=true`
 
-// const generateScraperUrl = (apiKey) => `http://api.scraperapi.com?api_key=${apiKey}&autoparse=true`
-
 app.use(express.json())
 
 app.use(bodyParser.json());
